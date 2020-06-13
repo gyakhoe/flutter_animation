@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/common/routes.dart';
-import 'package:flutter_animation/implicit_animation/bar_chart_animation.dart';
-import 'package:flutter_animation/implicit_animation/resize_animation.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       debugShowCheckedModeBanner: false,
-      routes: {
-        Routes.homePage: (context) => MyHomePage(title: _title),
-        Routes.resizeAnmiation: (context) => ResizeAnimation(),
-        Routes.barChartAnimation: (context) => BarChartAnimation(),
-      },
+      routes: Routes.routeMap,
       initialRoute: '/',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -51,12 +45,42 @@ class MyHomePage extends StatelessWidget {
             _animationScreenRouteButton(
               context: context,
               routeName: Routes.resizeAnmiation,
-              buttonName: 'Resize Container Animation',
+              buttonName: 'Resize Container',
             ),
             _animationScreenRouteButton(
               context: context,
               routeName: Routes.barChartAnimation,
-              buttonName: 'Bar Chart Animation',
+              buttonName: 'Bar Chart',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.crossFadeAnimation,
+              buttonName: 'Cross Fade',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.crossFadeBarAnimation,
+              buttonName: 'Cross Fade Bar',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.textStyleAnimation,
+              buttonName: 'Text Style Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.opacityAnimation,
+              buttonName: 'Opacity Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.physicalModalAnimation,
+              buttonName: 'Physical Modal Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.trifficLightAnimation,
+              buttonName: 'Traffic Light Animgation',
             ),
           ],
         ),
