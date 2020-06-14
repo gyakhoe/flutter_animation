@@ -1,6 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/common/list_of_curves.dart';
+import 'package:flutter_animation/widgets/center_item_with_button.dart';
 
 class ResizeAnimation extends StatefulWidget {
   const ResizeAnimation({Key key}) : super(key: key);
@@ -39,18 +39,13 @@ class _ResizeAnimationState extends State<ResizeAnimation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Resize Animation'),
-      ),
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        child: Stack(children: [
-          Align(
-            alignment: Alignment.center,
-            child: AnimatedContainer(
+        appBar: AppBar(
+          title: Text('Resize Animation'),
+        ),
+        body: centerItemWithBottomButton(
+            centerItem: AnimatedContainer(
               duration: Duration(milliseconds: 500),
-              curve: _randomCurveStyle(),
+              curve: randomCurveStyle(),
               height: _height,
               width: _width,
               padding: EdgeInsets.all(50),
@@ -60,22 +55,10 @@ class _ResizeAnimationState extends State<ResizeAnimation> {
               ),
               child: FlutterLogo(),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: FlatButton(
-              color: Theme.of(context).primaryColorDark,
-              child: Icon(
-                Icons.play_arrow,
-                color: Colors.white,
-                size: 30,
-              ),
+            button: IconButton(
+              icon: Icon(Icons.replay),
               onPressed: _resizeContainer,
-            ),
-          )
-        ]),
-      ),
-    );
+            )));
   }
 
   void _resizeContainer() {
@@ -88,28 +71,5 @@ class _ResizeAnimationState extends State<ResizeAnimation> {
           ? _color = Colors.amber[100]
           : _color = Colors.teal[500];
     });
-  }
-
-  Curve _randomCurveStyle() {
-    final List<Curve> availableCurves = [
-      Curves.bounceInOut,
-      Curves.bounceOut,
-      Curves.decelerate,
-      Curves.ease,
-      Curves.easeIn,
-      Curves.easeInBack,
-      Curves.easeInCirc,
-      Curves.easeInExpo,
-      Curves.easeInOutSine,
-      Curves.easeInOutQuint,
-      Curves.easeInToLinear,
-      Curves.elasticInOut,
-      Curves.fastLinearToSlowEaseIn,
-      Curves.fastOutSlowIn,
-      Curves.easeOutQuad,
-      Curves.slowMiddle,
-    ];
-    Random random = Random();
-    return availableCurves.elementAt(random.nextInt(availableCurves.length));
   }
 }

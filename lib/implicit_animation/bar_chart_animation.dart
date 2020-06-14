@@ -1,6 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/common/random_numbers.dart';
+import 'package:flutter_animation/widgets/bar_chart.dart';
 
 class BarChartAnimation extends StatefulWidget {
   BarChartAnimation({Key key}) : super(key: key);
@@ -29,16 +29,16 @@ class _BarChartAnimationState extends State<BarChartAnimation> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  _verticalAnimatedBar(
-                    barHeight: _randomBarHeight(),
+                  verticalBarChart(
+                    barHeight: randomBarChartHeight(),
                     barColor: Colors.blue[400],
                   ),
-                  _verticalAnimatedBar(
-                    barHeight: _randomBarHeight(),
+                  verticalBarChart(
+                    barHeight: randomBarChartHeight(),
                     barColor: Colors.red[400],
                   ),
-                  _verticalAnimatedBar(
-                    barHeight: _randomBarHeight(),
+                  verticalBarChart(
+                    barHeight: randomBarChartHeight(),
                     barColor: Colors.teal[400],
                   ),
                 ],
@@ -51,16 +51,16 @@ class _BarChartAnimationState extends State<BarChartAnimation> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  _horizontalAnimatedBar(
-                    barWidth: _randomBarHeight(),
+                  horizontalBarChart(
+                    barWidth: randomBarChartHeight(),
                     barColor: Colors.yellow[400],
                   ),
-                  _horizontalAnimatedBar(
-                    barWidth: _randomBarHeight(),
+                  horizontalBarChart(
+                    barWidth: randomBarChartHeight(),
                     barColor: Colors.purple[400],
                   ),
-                  _horizontalAnimatedBar(
-                    barWidth: _randomBarHeight(),
+                  horizontalBarChart(
+                    barWidth: randomBarChartHeight(),
                     barColor: Colors.redAccent[400],
                   ),
                 ],
@@ -79,87 +79,5 @@ class _BarChartAnimationState extends State<BarChartAnimation> {
 
   void _randomizeBarHeight() {
     setState(() {});
-  }
-
-  Widget _verticalAnimatedBar({
-    @required double barHeight,
-    @required Color barColor,
-  }) {
-    return Container(
-      height: 300,
-      width: 80,
-      margin: EdgeInsets.all(15),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 350,
-                width: 100,
-                decoration: BoxDecoration(
-                  color: Colors.grey[400],
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: AnimatedContainer(
-                duration: Duration(seconds: 1),
-                height: barHeight,
-                decoration: BoxDecoration(
-                  color: barColor,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _horizontalAnimatedBar({
-    @required double barWidth,
-    @required Color barColor,
-  }) {
-    return Container(
-      height: 50,
-      width: 350,
-      margin: EdgeInsets.all(15),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                height: 50,
-                width: 350,
-                decoration: BoxDecoration(
-                  color: Colors.grey[400],
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: AnimatedContainer(
-                duration: Duration(seconds: 1),
-                width: barWidth,
-                decoration: BoxDecoration(
-                  color: barColor,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  double _randomBarHeight() {
-    Random random = Random();
-    double randomDouble = random.nextDouble();
-    return 350 * randomDouble;
   }
 }
