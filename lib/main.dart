@@ -87,6 +87,11 @@ class MyHomePage extends StatelessWidget {
               routeName: Routes.positionAnimation,
               buttonName: 'Position Animation',
             ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.starAnimation,
+              buttonName: 'Star Animation',
+            ),
           ],
         ),
       ),
