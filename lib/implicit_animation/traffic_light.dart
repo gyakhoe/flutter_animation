@@ -11,18 +11,21 @@ class TrafficLight extends StatefulWidget {
 }
 
 class _TrafficLightState extends State<TrafficLight> {
-  Color _offShadowColor = Colors.grey;
-  Color _offColor = Colors.black;
+  final Color _offShadowColor = Colors.grey;
+  final Color _offColor = Colors.black;
   Duration _duration = Duration(milliseconds: 500);
-  double _elevation = 30;
+  double _elevation = 50;
 
-  var _light1 = Colors.red;
-  var _light2 = Colors.orange;
-  var _light3 = Colors.green;
+  final _light1 = Colors.red;
+  final _shadow1 = Colors.redAccent;
+  final _light2 = Colors.orange;
+  final _shadow2 = Colors.orangeAccent;
+  final _light3 = Colors.green;
+  final _shadow3 = Colors.greenAccent;
 
   var _isFirstOn = false;
   var _isSecondOn = false;
-  var _isThridOn = false;
+  var _isThirdOn = false;
 
   var _enableButton = true;
 
@@ -47,7 +50,7 @@ class _TrafficLightState extends State<TrafficLight> {
             children: <Widget>[
               Align(
                 child: AnimatedPhysicalModel(
-                  shadowColor: _offShadowColor,
+                  shadowColor: _isFirstOn ? _shadow1 : _offShadowColor,
                   duration: _duration,
                   elevation: _elevation,
                   shape: BoxShape.circle,
@@ -57,7 +60,7 @@ class _TrafficLightState extends State<TrafficLight> {
               ),
               Align(
                 child: AnimatedPhysicalModel(
-                  shadowColor: _offShadowColor,
+                  shadowColor: _isSecondOn ? _shadow2 : _offShadowColor,
                   duration: _duration,
                   elevation: _elevation,
                   shape: BoxShape.circle,
@@ -67,11 +70,11 @@ class _TrafficLightState extends State<TrafficLight> {
               ),
               Align(
                 child: AnimatedPhysicalModel(
-                  shadowColor: _offShadowColor,
+                  shadowColor: _isThirdOn ? _shadow3 : _offShadowColor,
                   duration: _duration,
                   elevation: _elevation,
                   shape: BoxShape.circle,
-                  color: _isThridOn ? _light3 : _offColor,
+                  color: _isThirdOn ? _light3 : _offColor,
                   child: _child,
                 ),
               ),
@@ -88,17 +91,17 @@ class _TrafficLightState extends State<TrafficLight> {
 
   void _startTrafficLight() {
     _enableButton = false;
-    if (_isFirstOn && _isSecondOn && _isThridOn) {
+    if (_isFirstOn && _isSecondOn && _isThirdOn) {
       setState(() {
         _isFirstOn = false;
         _isSecondOn = false;
-        _isThridOn = false;
+        _isThirdOn = false;
       });
     }
 
     Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
-        if (_isFirstOn && _isSecondOn && _isThridOn) {
+        if (_isFirstOn && _isSecondOn && _isThirdOn) {
           print('all are on');
           timer.cancel();
         }
@@ -108,9 +111,9 @@ class _TrafficLightState extends State<TrafficLight> {
         } else if (!_isSecondOn) {
           print('turing 2');
           _isSecondOn = true;
-        } else if (!_isThridOn) {
+        } else if (!_isThirdOn) {
           print('turing 3');
-          _isThridOn = true;
+          _isThirdOn = true;
         } else {
           _enableButton = true;
         }

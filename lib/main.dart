@@ -82,6 +82,11 @@ class MyHomePage extends StatelessWidget {
               routeName: Routes.trifficLightAnimation,
               buttonName: 'Traffic Light Animgation',
             ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.positionAnimation,
+              buttonName: 'Position Animation',
+            ),
           ],
         ),
       ),

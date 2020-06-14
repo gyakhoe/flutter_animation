@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation/implicit_animation/implicit_animation_screens.dart';
 import 'package:flutter_animation/implicit_animation/opacity_animation.dart';
 import 'package:flutter_animation/implicit_animation/physical_modal_animation.dart';
+import 'package:flutter_animation/implicit_animation/position_animation.dart';
 import 'package:flutter_animation/implicit_animation/text_style_animation.dart';
 import 'package:flutter_animation/implicit_animation/traffic_light.dart';
 import 'package:flutter_animation/main.dart';
@@ -17,6 +18,7 @@ class Routes {
   static String opacityAnimation = '/implicit/opacity-animation';
   static String physicalModalAnimation = '/implicit/physical-modal-animation';
   static String trifficLightAnimation = '/implicit/traffic-light-animation';
+  static String positionAnimation = '/implicit/position-animation';
 
   static Map<String, WidgetBuilder> routeMap = {
     Routes.homePage: (context) => MyHomePage(title: 'Flutter Animation'),
@@ -28,5 +30,6 @@ class Routes {
     Routes.opacityAnimation: (context) => OpacityAnimation(),
     Routes.physicalModalAnimation: (context) => PhysicalModalAnimation(),
     Routes.trifficLightAnimation: (context) => TrafficLight(),
+    Routes.positionAnimation: (context) => PositionAnimation(),
   };
 }
