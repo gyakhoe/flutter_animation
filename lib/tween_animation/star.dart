@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Star extends StatelessWidget {
+class Star extends StatefulWidget {
+  static final Widget child = Image.asset('assets/images/sun.png');
   const Star({Key key}) : super(key: key);
+
+  @override
+  _StarState createState() => _StarState();
+}
+
+class _StarState extends State<Star> {
+  Color _newColor = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +35,17 @@ class Star extends StatelessWidget {
                 height: 300,
                 width: 300,
                 child: TweenAnimationBuilder(
-                  tween: ColorTween(begin: Colors.white, end: Colors.red),
+                  tween: ColorTween(begin: Colors.white, end: _newColor),
                   duration: Duration(seconds: 3),
+                  onEnd: () {
+                    setState(() {
+                      _newColor =
+                          _newColor == Colors.red ? Colors.white : Colors.red;
+                    });
+                  },
                   builder: (_, Color color, __) {
                     return ColorFiltered(
-                      child: Image.asset('assets/images/sun.png'),
+                      child: Star.child,
                       colorFilter: ColorFilter.mode(color, BlendMode.modulate),
                     );
                   },
