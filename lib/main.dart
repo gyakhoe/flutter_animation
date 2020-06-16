@@ -102,8 +102,13 @@ class MyHomePage extends StatelessWidget {
             ),
             _animationScreenRouteButton(
               context: context,
-              routeName: Routes.itemsScaletransiton,
+              routeName: Routes.rippleScaleTransition,
               buttonName: 'Items Scale',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.bouncingItemTransition,
+              buttonName: 'Bouncing Item',
             ),
           ],
         ),

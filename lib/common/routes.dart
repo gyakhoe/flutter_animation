@@ -20,7 +20,8 @@ class Routes {
   static String starAnimation = '/tween-animation/star';
   static String rotation = '/tween-animation/roatation';
   static String galaxyRotation = '/transition/galaxy-rotation';
-  static String itemsScaletransiton = '/transition/item-scale-transition';
+  static String rippleScaleTransition = '/transition/ripple-scale-transition';
+  static String bouncingItemTransition = '/transition/moving-item-transition';
 
   static Map<String, WidgetBuilder> routeMap = {
     Routes.homePage: (context) => MyHomePage(title: 'Flutter Animation'),
@@ -36,6 +37,7 @@ class Routes {
     Routes.starAnimation: (context) => Star(),
     Routes.rotation: (context) => Rotation(),
     Routes.galaxyRotation: (context) => GalaxyRotationTransition(),
-    Routes.itemsScaletransiton: (context) => ItemsScaleTransition(),
+    Routes.rippleScaleTransition: (context) => RippleScaleTransition(),
+    Routes.bouncingItemTransition: (context) => MovingItemTransition(),
   };
 }
