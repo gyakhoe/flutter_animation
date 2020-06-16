@@ -3,3 +3,8 @@ export 'cross_fade_bar.dart';
 export 'resize_animation.dart';
 export 'cross_fade_logo_animation.dart';
 export 'cross_fade_logo_animation.dart';
+export 'text_style_animation.dart';
+export 'opacity_animation.dart';
+export 'physical_modal_animation.dart';
+export 'traffic_light.dart';
+export 'position_animation.dart';

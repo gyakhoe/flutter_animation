@@ -38,9 +38,7 @@ class MyHomePage extends StatelessWidget {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
             _animationScreenRouteButton(
               context: context,
@@ -86,6 +84,26 @@ class MyHomePage extends StatelessWidget {
               context: context,
               routeName: Routes.positionAnimation,
               buttonName: 'Position Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.starAnimation,
+              buttonName: 'Star Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.rotation,
+              buttonName: 'Rotation Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.galaxyRotation,
+              buttonName: 'Galaxy Rotation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.itemsScaletransiton,
+              buttonName: 'Items Scale',
             ),
           ],
         ),
