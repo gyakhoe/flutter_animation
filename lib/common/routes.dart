@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/custom_animation/custom_animations.dart';
 import 'package:flutter_animation/implicit_animation/implicit_animations.dart';
 import 'package:flutter_animation/main.dart';
 import 'package:flutter_animation/transition/galaxy_rotation_transition.dart';
@@ -22,6 +23,8 @@ class Routes {
   static String galaxyRotation = '/transition/galaxy-rotation';
   static String rippleScaleTransition = '/transition/ripple-scale-transition';
   static String bouncingItemTransition = '/transition/moving-item-transition';
+  static String spaceShipAnimation = '/custom/space-ship-animation';
+  static String randomLineAnimation = '/custom/random-line-animation';
 
   static Map<String, WidgetBuilder> routeMap = {
     Routes.homePage: (context) => MyHomePage(title: 'Flutter Animation'),
@@ -39,5 +42,7 @@ class Routes {
     Routes.galaxyRotation: (context) => GalaxyRotationTransition(),
     Routes.rippleScaleTransition: (context) => RippleScaleTransition(),
     Routes.bouncingItemTransition: (context) => MovingItemTransition(),
+    Routes.spaceShipAnimation: (context) => SpaceShipAnimation(),
+    Routes.randomLineAnimation: (context) => RandomLinesAnimation(),
   };
 }

@@ -110,6 +110,16 @@ class MyHomePage extends StatelessWidget {
               routeName: Routes.bouncingItemTransition,
               buttonName: 'Bouncing Item',
             ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.spaceShipAnimation,
+              buttonName: 'Spaceship Animation',
+            ),
+            _animationScreenRouteButton(
+              context: context,
+              routeName: Routes.randomLineAnimation,
+              buttonName: 'Random Line Animation',
+            ),
           ],
         ),
       ),
