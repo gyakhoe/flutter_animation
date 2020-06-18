@@ -25,6 +25,7 @@ class Routes {
   static String bouncingItemTransition = '/transition/moving-item-transition';
   static String spaceShipAnimation = '/custom/space-ship-animation';
   static String randomLineAnimation = '/custom/random-line-animation';
+  static String customShapePainter = '/custom/custom-shape-painter';
 
   static Map<String, WidgetBuilder> routeMap = {
     Routes.homePage: (context) => MyHomePage(title: 'Flutter Animation'),
@@ -44,5 +45,6 @@ class Routes {
     Routes.bouncingItemTransition: (context) => MovingItemTransition(),
     Routes.spaceShipAnimation: (context) => SpaceShipAnimation(),
     Routes.randomLineAnimation: (context) => RandomLinesAnimation(),
+    Routes.customShapePainter: (context) => CustomShapePainter(),
   };
 }
